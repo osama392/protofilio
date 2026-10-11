@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Photo Switcher</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>&#9992; Choose Your Travel Look</h1>
+        <p class="subtitle">Every adventure needs a different version of you.</p>
+    </header>
+
+    <main>
+        <div class="photo-container">
+            <img id="profileImg" src="assets/profile1.jpeg" alt="Casual photo of Osama" class="profile-photo">
+        </div>
+
+        <div class="switcher-buttons">
+            <button class="btn-switch active" data-photo="assets/profile1.jpeg" data-alt="Casual photo of Osama" data-label="Casual">
+                &#127956; Casual
+            </button>
+            <button class="btn-switch" data-photo="assets/profile2.jpeg" data-alt="Professional photo of Osama" data-label="Professional">
+                &#128188; Professional
+            </button>
+            <button class="btn-switch" data-photo="assets/profile3.jpeg" data-alt="Adventure photo of Osama" data-label="Adventure">
+                &#9968; Adventure
+            </button>
+        </div>
+
+        <p id="currentLabel" class="current-label">Currently: Casual</p>
+    </main>
+
+    <footer>
+        <p>&#9992; Bounce 01 &mdash; Profile Photo Switcher</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

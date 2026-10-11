@@ -1,0 +1,1691 @@
+/* ========================================
+   CSS VARIABLES — THEME COLORS
+   ======================================== */
+:root {
+    --bg-primary: #f5f0e8;
+    --bg-secondary: #ebe4d6;
+    --text-primary: #2c3e50;
+    --text-secondary: #5a6c7d;
+    --accent: #e67e22;
+    --accent-hover: #cf6d17;
+    --teal: #1abc9c;
+    --card-bg: #ffffff;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --border-color: #c9b99a;
+    --nav-bg: rgba(245, 240, 232, 0.95);
+    --footer-bg: #2c3e50;
+    --hero-gradient: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #e67e22 100%);
+    --stamp-border: #2c3e50;
+    --ticket-header: #2c3e50;
+}
+
+body.dark-mode {
+    --bg-primary: #0a1628;
+    --bg-secondary: #111d32;
+    --text-primary: #ecf0f1;
+    --text-secondary: #a0b0c0;
+    --accent: #e67e22;
+    --accent-hover: #f39c12;
+    --teal: #1abc9c;
+    --card-bg: #162033;
+    --card-shadow: rgba(0, 0, 0, 0.4);
+    --border-color: #2a3a52;
+    --nav-bg: rgba(10, 22, 40, 0.95);
+    --footer-bg: #060e1a;
+    --hero-gradient: linear-gradient(135deg, #0a1628 0%, #1a3a5c 50%, #e67e22 100%);
+    --stamp-border: #e67e22;
+    --ticket-header: #1a3a5c;
+}
+
+/* ========================================
+   RESET & BASE
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.7;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* ========================================
+   NAVBAR
+   ======================================== */
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 2px dashed var(--border-color);
+    transition: background-color 0.5s ease;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+#navLinks {
+    display: flex;
+    gap: 25px;
+}
+
+#navLinks a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+#navLinks a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+#navLinks a:hover {
+    color: var(--accent);
+}
+
+#navLinks a:hover::after {
+    width: 100%;
+}
+
+#menuToggle {
+    display: none;
+    background: none;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+#themeToggle {
+    padding: 8px 16px;
+    border: 2px solid var(--accent);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--accent);
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+#themeToggle:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--hero-gradient);
+    text-align: center;
+    padding: 100px 20px 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="60" opacity="0.03">✈</text></svg>') repeat;
+    background-size: 120px;
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 750px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-tagline {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+#hero h1 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: normal;
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.hero-credit {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+    margin-bottom: 40px;
+}
+
+.btn-explore {
+    display: inline-block;
+    padding: 14px 35px;
+    background-color: var(--accent);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--accent);
+}
+
+.btn-explore:hover {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+/* ========================================
+   SECTION TITLES
+   ======================================== */
+.section-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+    color: var(--text-primary);
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent);
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+section {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   ABOUT — AUTHENTIC PASSPORT BOOK
+   ======================================== */
+.passport-book {
+    position: relative;
+    background: #142136;
+    padding: 12px;
+    border-radius: 18px;
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.22);
+    border: 2px solid #233550;
+    transition: all 0.4s ease;
+}
+
+body.dark-mode .passport-book {
+    background: #0b1322;
+    border-color: #1a283e;
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.55);
+}
+
+.passport-spread {
+    display: flex;
+    background: #faf5eb;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #dcd2be;
+    position: relative;
+    box-shadow: inset 0 0 40px rgba(180, 160, 130, 0.15);
+}
+
+body.dark-mode .passport-spread {
+    background: #152238;
+    border-color: #233550;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4);
+}
+
+.passport-page {
+    flex: 1;
+    padding: 32px 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-image: 
+        radial-gradient(#ded4c0 0.85px, transparent 0.85px),
+        radial-gradient(#ded4c0 0.85px, #faf5eb 0.85px);
+    background-size: 16px 16px;
+    background-position: 0 0, 8px 8px;
+}
+
+body.dark-mode .passport-page {
+    background-image: 
+        radial-gradient(#20334e 0.85px, transparent 0.85px),
+        radial-gradient(#20334e 0.85px, #152238 0.85px);
+    background-size: 16px 16px;
+    background-position: 0 0, 8px 8px;
+}
+
+.passport-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-25deg);
+    font-size: 7.5rem;
+    font-weight: 900;
+    color: rgba(180, 160, 130, 0.07);
+    font-family: Arial, Helvetica, sans-serif;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: 12px;
+}
+
+body.dark-mode .passport-watermark {
+    color: rgba(255, 255, 255, 0.035);
+}
+
+/* Passport Spine & Stitching */
+.passport-spine {
+    width: 18px;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.14) 0%,
+        rgba(0, 0, 0, 0.02) 25%,
+        rgba(0, 0, 0, 0.25) 50%,
+        rgba(0, 0, 0, 0.02) 75%,
+        rgba(0, 0, 0, 0.14) 100%
+    );
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+body.dark-mode .passport-spine {
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.1) 25%,
+        rgba(0, 0, 0, 0.7) 50%,
+        rgba(0, 0, 0, 0.1) 75%,
+        rgba(0, 0, 0, 0.5) 100%
+    );
+}
+
+.spine-stitch {
+    width: 2px;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        #8a7b68 0px,
+        #8a7b68 7px,
+        transparent 7px,
+        transparent 15px
+    );
+}
+
+/* Page Header (Left) */
+.passport-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 20px;
+    font-size: 0.72rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.passport-country-ar {
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0;
+}
+
+/* Left Page Body */
+.passport-left-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 2;
+}
+
+.passport-photo-box {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+}
+
+.passport-photo-wrapper {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.passport-photo {
+    width: 125px;
+    height: 155px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+    display: block;
+    background: #e6dfd1;
+}
+
+.photo-placeholder {
+    width: 125px;
+    height: 155px;
+    border-radius: 6px;
+    border: 3px solid #ffffff;
+    background: #e2dbcd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+    color: #6e6152;
+    text-align: center;
+    padding: 8px;
+}
+
+body.dark-mode .photo-placeholder {
+    background: #1e2c42;
+    border-color: #2e3e57;
+    color: #a0b2cc;
+}
+
+.ph-avatar {
+    font-size: 2.2rem;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.ph-title {
+    font-size: 0.65rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-family: Arial, sans-serif;
+}
+
+.ph-name {
+    font-size: 0.58rem;
+    opacity: 0.85;
+    margin-top: 2px;
+}
+
+.photo-seal {
+    position: absolute;
+    bottom: -6px;
+    right: -6px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.55rem;
+    font-weight: bold;
+    padding: 3px 6px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+}
+
+.passport-left-intro {
+    flex: 1;
+}
+
+.passport-role-title {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    margin-top: 3px;
+    margin-bottom: 2px;
+    line-height: 1.35;
+    font-family: Georgia, serif;
+}
+
+.passport-doc-type {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 2px;
+    font-family: Arial, sans-serif;
+}
+
+.passport-field-group {
+    margin-top: 2px;
+}
+
+.passport-bio-text {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin-top: 3px;
+}
+
+.passport-edu-box {
+    margin-top: 4px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.passport-edu-box p {
+    margin-bottom: 4px;
+}
+
+/* Right Page Header */
+.passport-doc-header {
+    display: flex;
+    gap: 24px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 18px;
+    z-index: 2;
+}
+
+.doc-header-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.doc-label {
+    font-size: 0.62rem;
+    font-family: Arial, sans-serif;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.doc-val {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Right Page Fields Grid */
+.passport-fields-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 18px;
+    margin-bottom: 15px;
+    z-index: 2;
+}
+
+.passport-field.span-2 {
+    grid-column: span 2;
+}
+
+.pass-field-label {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--accent);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.pass-field-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+.passport-name-main {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    color: var(--text-primary);
+    margin-bottom: 1px;
+    font-family: Arial, sans-serif;
+    font-weight: 800;
+}
+
+.passport-name-ar {
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.pass-field-highlight {
+    color: var(--accent);
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+/* Realistic Passport Stamps */
+.passport-stamp {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    z-index: 6;
+    font-family: Arial, 'Courier New', monospace;
+    font-weight: 800;
+    text-transform: uppercase;
+    mix-blend-mode: multiply;
+    opacity: 0.84;
+}
+
+body.dark-mode .passport-stamp {
+    mix-blend-mode: screen;
+    opacity: 0.88;
+}
+
+.stamp-jordan {
+    top: 35px;
+    right: 22px;
+    border: 3px double #1b6ca8;
+    color: #1b6ca8;
+    border-radius: 50%;
+    width: 124px;
+    height: 124px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8px;
+    transform: rotate(-12deg);
+    box-shadow: inset 0 0 0 1px #1b6ca8;
+    line-height: 1.15;
+    background: rgba(27, 108, 168, 0.03);
+}
+
+.stamp-jordan .st-title {
+    font-size: 0.54rem;
+    letter-spacing: 0.5px;
+}
+
+.stamp-jordan .st-date {
+    font-size: 0.76rem;
+    margin: 3px 0;
+    border-top: 1px solid #1b6ca8;
+    border-bottom: 1px solid #1b6ca8;
+    padding: 2px 4px;
+    font-weight: 900;
+}
+
+.stamp-jordan .st-sub {
+    font-size: 0.52rem;
+    letter-spacing: 0.8px;
+}
+
+.stamp-schengen {
+    bottom: 58px;
+    left: 28px;
+    border: 2.5px solid #c0392b;
+    color: #c0392b;
+    border-radius: 10px;
+    padding: 5px 12px;
+    transform: rotate(4deg);
+    text-align: center;
+    line-height: 1.25;
+    background: rgba(192, 57, 43, 0.03);
+}
+
+.stamp-schengen .st-stars {
+    font-size: 0.72rem;
+    letter-spacing: 4px;
+    color: #c0392b;
+}
+
+.stamp-schengen .st-place {
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.stamp-schengen .st-date {
+    font-size: 0.76rem;
+    font-weight: 900;
+    margin: 2px 0;
+}
+
+.stamp-schengen .st-flag {
+    font-size: 0.6rem;
+    letter-spacing: 0.8px;
+}
+
+.stamp-dubai {
+    top: 175px;
+    right: 25px;
+    border: 2px dashed #7d3c98;
+    color: #7d3c98;
+    border-radius: 8px;
+    padding: 6px 12px;
+    transform: rotate(-6deg);
+    text-align: center;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    line-height: 1.25;
+    background: rgba(125, 60, 152, 0.03);
+}
+
+/* Machine Readable Zone (MRZ) */
+.passport-mrz {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(0, 0, 0, 0.18);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+    letter-spacing: 3.5px;
+    line-height: 1.35;
+    color: var(--text-primary);
+    opacity: 0.85;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    user-select: all;
+    z-index: 2;
+}
+
+body.dark-mode .passport-mrz {
+    border-top-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ========================================
+   SKILLS — AIRPORT BOARDING SCREEN (FIDS)
+   ======================================== */
+.boarding-screen {
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: #0b121d;
+    border: 3px solid #1c2b3d;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    font-family: 'Consolas', 'Courier New', monospace, sans-serif;
+}
+
+body.dark-mode .boarding-screen {
+    background-color: #070d17;
+    border-color: #1a2a3e;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.65), 0 0 25px rgba(230, 126, 34, 0.1);
+}
+
+/* Screen Top Header */
+.screen-header {
+    background: #040810;
+    padding: 14px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    border-bottom: 2px solid #e67e22;
+}
+
+.screen-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.screen-indicator {
+    color: #2ecc71;
+    font-size: 1.1rem;
+    animation: fidsBlink 1.5s infinite;
+}
+
+@keyframes fidsBlink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.25; transform: scale(0.85); }
+}
+
+.screen-title {
+    color: #e67e22;
+    font-weight: bold;
+    font-size: 0.92rem;
+    letter-spacing: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.screen-meta {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.meta-tag {
+    background: #111e30;
+    color: #8da4be;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.meta-status {
+    color: #2ecc71;
+    border: 1px solid rgba(46, 204, 113, 0.3);
+    background: rgba(46, 204, 113, 0.08);
+}
+
+/* FIDS Table Header */
+.fids-table-header {
+    display: flex;
+    padding: 11px 22px;
+    background: #0e1724;
+    color: #72879e;
+    font-size: 0.74rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid #1a2a3e;
+    text-transform: uppercase;
+}
+
+/* Category Separator Bar */
+.fids-category-bar {
+    padding: 10px 22px;
+    background: linear-gradient(90deg, #132238 0%, #0d1624 100%);
+    color: #f39c12;
+    font-size: 0.82rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #1a2a3e;
+    border-bottom: 1px dashed #22374f;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.fids-badge-sub {
+    font-size: 0.68rem;
+    color: #8da4be;
+    letter-spacing: 1px;
+    font-family: monospace;
+}
+
+/* Rows */
+.fids-row {
+    display: flex;
+    align-items: center;
+    padding: 12px 22px;
+    color: #ecf0f1;
+    font-size: 0.88rem;
+    border-bottom: 1px solid #142032;
+    transition: background-color 0.2s ease;
+}
+
+.fids-row:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.015);
+}
+
+.fids-row:hover {
+    background-color: #172840;
+}
+
+.fids-icon {
+    font-size: 1.05rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 6px;
+}
+
+/* Columns */
+.col-code {
+    flex: 0 0 95px;
+    color: #e67e22;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    font-size: 0.82rem;
+}
+
+.col-skill {
+    flex: 2;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.col-category {
+    flex: 1.2;
+    color: #7f95ac;
+    font-size: 0.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.col-gate {
+    flex: 0 0 85px;
+    color: #f1c40f;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-align: center;
+    font-size: 0.82rem;
+}
+
+.col-status {
+    flex: 0 0 120px;
+    text-align: right;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    display: inline-block;
+    font-family: monospace;
+}
+
+.status-deployed {
+    background: rgba(46, 204, 113, 0.15);
+    color: #2ecc71;
+    border: 1px solid rgba(46, 204, 113, 0.5);
+}
+
+.status-active {
+    background: rgba(52, 152, 219, 0.15);
+    color: #3498db;
+    border: 1px solid rgba(52, 152, 219, 0.5);
+}
+
+.status-boarding {
+    background: rgba(243, 156, 18, 0.15);
+    color: #f39c12;
+    border: 1px solid rgba(243, 156, 18, 0.5);
+}
+
+/* Screen Footer */
+.screen-footer {
+    padding: 13px 22px;
+    background: #040810;
+    text-align: center;
+    color: #72879e;
+    font-size: 0.76rem;
+    letter-spacing: 1.5px;
+    border-top: 1px solid #1a2a3e;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+.footer-plane {
+    color: #8da4be;
+}
+
+/* Responsive adjustments for Boarding Screen */
+@media (max-width: 768px) {
+    .fids-table-header {
+        display: none;
+    }
+    
+    .fids-row {
+        flex-wrap: wrap;
+        padding: 12px 16px;
+        gap: 6px;
+    }
+    
+    .col-code {
+        flex: 0 0 auto;
+        margin-right: 8px;
+    }
+    
+    .col-skill {
+        flex: 1 1 60%;
+    }
+    
+    .col-category {
+        display: none;
+    }
+    
+    .col-gate {
+        flex: 0 0 auto;
+        text-align: left;
+    }
+    
+    .col-status {
+        flex: 1 1 100%;
+        text-align: left;
+        margin-top: 4px;
+    }
+}
+
+/* ========================================
+   CERTIFICATIONS — FLIGHT LICENSES
+   ======================================== */
+.certs-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 22px;
+}
+
+.cert-card {
+    flex: 1 1 290px;
+    max-width: 335px;
+    background-color: var(--card-bg);
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    padding: 22px 20px;
+    box-shadow: 0 4px 15px var(--card-shadow);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--teal);
+    box-shadow: 0 10px 25px var(--card-shadow);
+}
+
+.cert-badge {
+    align-self: flex-start;
+    background-color: rgba(26, 188, 156, 0.12);
+    color: var(--teal);
+    border: 1px solid var(--teal);
+    padding: 3px 10px;
+    border-radius: 15px;
+    font-size: 0.72rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.cert-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+}
+
+.cert-issuer {
+    font-size: 0.82rem;
+    color: var(--accent);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.cert-desc {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* ========================================
+   PROJECTS — AIRLINE TICKETS
+   ======================================== */
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.ticket {
+    width: 100%;
+    max-width: 500px;
+    background-color: var(--card-bg);
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease;
+    position: relative;
+}
+
+.ticket::before,
+.ticket::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: var(--bg-primary);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color 0.5s ease;
+}
+
+.ticket::before {
+    left: -12px;
+}
+
+.ticket::after {
+    right: -12px;
+}
+
+.ticket:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px var(--card-shadow);
+}
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 25px;
+    background-color: var(--ticket-header);
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.flight-no {
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+.ticket-class {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    opacity: 0.8;
+}
+
+.ticket-body {
+    padding: 20px 25px;
+}
+
+.ticket-route {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.route-label {
+    font-size: 0.65rem;
+    color: var(--accent);
+    letter-spacing: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.route-city {
+    font-size: 1.05rem;
+    font-weight: bold;
+}
+
+.route-arrow {
+    font-size: 1.5rem;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.ticket-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    border-top: 1px dashed var(--border-color);
+    padding-top: 12px;
+}
+
+.ticket-footer {
+    padding: 10px 25px;
+    text-align: right;
+    font-size: 0.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--teal);
+    border-top: 2px dashed var(--border-color);
+}
+
+/* ========================================
+   TRAVELS — 17 COUNTRIES
+   ======================================== */
+.travels-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 30px;
+    margin-top: -20px;
+}
+
+.travels-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+}
+
+.country-stamp {
+    width: 116px;
+    height: 116px;
+    border: 3px dashed var(--stamp-border);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 6px;
+    transition: all 0.4s ease;
+    cursor: default;
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 8px var(--card-shadow);
+}
+
+.country-stamp:hover {
+    transform: rotate(-8deg) scale(1.15);
+    border-color: var(--accent);
+    box-shadow: 0 6px 18px var(--card-shadow);
+}
+
+.country-flag-img {
+    width: 40px;
+    height: 26px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    margin-bottom: 6px;
+}
+
+.country-stamp p {
+    font-size: 0.62rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    line-height: 1.15;
+    max-width: 95px;
+}
+
+/* ========================================
+   CONTACT INFO BAR
+   ======================================== */
+.contact-info {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ========================================
+   HOBBIES
+   ======================================== */
+.hobbies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.hobby-card {
+    width: 140px;
+    padding: 25px 15px;
+    text-align: center;
+    background-color: var(--card-bg);
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.hobby-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 8px 20px var(--card-shadow);
+}
+
+.hobby-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.hobby-card p {
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ========================================
+   VOLUNTEERING — COMMUNITY MISSIONS
+   ======================================== */
+.volunteer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 22px;
+}
+
+.volunteer-card {
+    flex: 1 1 300px;
+    max-width: 340px;
+    background-color: var(--card-bg);
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    padding: 24px 20px;
+    box-shadow: 0 4px 15px var(--card-shadow);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.volunteer-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 25px var(--card-shadow);
+}
+
+.vol-badge {
+    align-self: flex-start;
+    background-color: var(--accent);
+    color: #ffffff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.volunteer-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+}
+
+.vol-org {
+    color: var(--teal);
+    font-size: 0.85rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
+}
+
+.vol-desc {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* ========================================
+   CONTACT — POSTCARD
+   ======================================== */
+#contact {
+    background-color: var(--bg-secondary);
+    max-width: 100%;
+    padding: 80px 20px;
+    transition: background-color 0.5s ease;
+}
+
+#contact .section-title,
+#contact .postcard {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.postcard {
+    display: flex;
+    gap: 25px;
+    background-color: var(--card-bg);
+    padding: 35px;
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px var(--card-shadow);
+    transition: background-color 0.5s ease;
+}
+
+.postcard-left,
+.postcard-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.postcard label {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 5px;
+    margin-top: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.postcard label:first-child {
+    margin-top: 0;
+}
+
+.postcard input,
+.postcard textarea {
+    padding: 10px 14px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: Georgia, serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: border-color 0.3s ease, background-color 0.5s ease, color 0.5s ease;
+    outline: none;
+}
+
+.postcard input:focus,
+.postcard textarea:focus {
+    border-color: var(--accent);
+}
+
+.postcard textarea {
+    resize: vertical;
+    flex: 1;
+    min-height: 100px;
+}
+
+.btn-send {
+    margin-top: 15px;
+    padding: 12px 25px;
+    background-color: var(--accent);
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-send:hover {
+    background-color: var(--accent-hover);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+footer {
+    background-color: var(--footer-bg);
+    color: #ffffff;
+    text-align: center;
+    padding: 35px 20px;
+    transition: background-color 0.5s ease;
+}
+
+footer p {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.footer-quote {
+    font-style: italic;
+    opacity: 0.6;
+    font-size: 0.85rem;
+}
+
+.footer-links {
+    margin-top: 12px;
+}
+
+.footer-links a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--teal);
+}
+
+/* ========================================
+   RESPONSIVE — MOBILE (max-width: 768px)
+   ======================================== */
+@media (max-width: 768px) {
+
+    /* Navbar */
+    #navbar {
+        flex-wrap: wrap;
+        padding: 12px 20px;
+    }
+
+    #menuToggle {
+        display: block;
+        order: 2;
+    }
+
+    #themeToggle {
+        order: 3;
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    #navLinks {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        order: 4;
+        margin-top: 10px;
+        border-top: 1px dashed var(--border-color);
+        padding-top: 10px;
+    }
+
+    #navLinks.active {
+        display: flex;
+    }
+
+    #navLinks a {
+        padding: 10px 0;
+        border-bottom: 1px dashed var(--border-color);
+    }
+
+    /* Hero */
+    #hero h1 {
+        font-size: 1.4rem;
+    }
+
+    .hero-tagline {
+        font-size: 0.75rem;
+    }
+
+    /* About — Passport Book */
+    .passport-spread {
+        flex-direction: column;
+    }
+
+    .passport-spine {
+        width: 100%;
+        height: 14px;
+    }
+
+    .spine-stitch {
+        width: 100%;
+        height: 2px;
+        background: repeating-linear-gradient(
+            to right,
+            #8a7b68 0px,
+            #8a7b68 7px,
+            transparent 7px,
+            transparent 15px
+        );
+    }
+
+    .passport-page {
+        padding: 24px 18px;
+    }
+
+    .passport-photo-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .passport-fields-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .passport-field.span-2 {
+        grid-column: span 1;
+    }
+
+    .stamp-jordan {
+        width: 100px;
+        height: 100px;
+        top: 15px;
+        right: 10px;
+    }
+
+    .stamp-schengen {
+        position: static;
+        margin-top: 15px;
+        transform: rotate(2deg);
+        display: inline-block;
+    }
+
+    .stamp-dubai {
+        position: static;
+        margin-top: 10px;
+        transform: rotate(-2deg);
+        display: inline-block;
+    }
+
+    .passport-mrz {
+        font-size: 0.65rem;
+        letter-spacing: 1.8px;
+    }
+
+    /* Skills */
+    .stamp {
+        width: 100px;
+        height: 100px;
+    }
+
+    .stamp-icon {
+        font-size: 1.5rem;
+    }
+
+    .stamp-text {
+        font-size: 0.65rem;
+    }
+
+    /* Projects */
+    .ticket {
+        max-width: 100%;
+    }
+
+    .ticket::before,
+    .ticket::after {
+        display: none;
+    }
+
+    .ticket-route {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .route-arrow {
+        transform: rotate(90deg);
+    }
+
+    /* Contact */
+    .postcard {
+        flex-direction: column;
+        padding: 25px;
+    }
+
+    /* Hobbies */
+    .hobby-card {
+        width: 110px;
+        padding: 18px 10px;
+    }
+
+    .hobby-icon {
+        font-size: 2rem;
+    }
+}
+
+/* ========================================
+   SMALL MOBILE (max-width: 480px)
+   ======================================== */
+@media (max-width: 480px) {
+    #hero h1 {
+        font-size: 1.15rem;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .stamp {
+        width: 85px;
+        height: 85px;
+    }
+
+    .stamp::before {
+        display: none;
+    }
+
+    .stamp-icon {
+        font-size: 1.3rem;
+    }
+
+    .stamp-text {
+        font-size: 0.6rem;
+    }
+}
